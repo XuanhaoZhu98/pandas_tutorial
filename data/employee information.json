@@ -1,0 +1,44 @@
+[
+ {
+   "ID": 1,
+   "Name": "John Idle",
+   "Hire Date": "8/1/2014 00:00:00",
+   "Salary": 50000,
+   "Leaves Remaining": 10
+ },
+ {
+   "ID": 2,
+   "Name": "Smith Gilliam",
+   "Hire Date": "4/7/2015 00:00:00",
+   "Salary": 65000,
+   "Leaves Remaining": 6
+ },
+ {
+   "ID": 3,
+   "Name": "Parker Chapman",
+   "Hire Date": "2/1/2014 00:00:00",
+   "Salary": 45000,
+   "Leaves Remaining": 7
+ },
+ {
+   "ID": 4,
+   "Name": "Jones Palin",
+   "Hire Date": "10/1/2013 00:00:00",
+   "Salary": 70000,
+   "Leaves Remaining": 3
+ },
+ {
+   "ID": 5,
+   "Name": "Terry Gilliam",
+   "Hire Date": "7/1/2014 00:00:00",
+   "Salary": 48000,
+   "Leaves Remaining": 9
+ },
+ {
+   "ID": 6,
+   "Name": "Michael Palin",
+   "Hire Date": "6/1/2013 00:00:00",
+   "Salary": 66000,
+   "Leaves Remaining": 8
+ }
+]

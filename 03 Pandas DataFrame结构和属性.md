@@ -1,4 +1,4 @@
-# 03 Pandas DataFrame入门教程
+# 03 Pandas DataFrame结构和属性
 
 DataFrame 是 Pandas 的重要数据结构之一，也是在使用 Pandas 进行数据分析过程中最常用的结构之一，可以这么说，掌握了 DataFrame 的用法，你就拥有了学习数据分析的基本能力。
 
@@ -49,8 +49,6 @@ DataFrame 结构类似于 Execl 的表格型，表格中列标签的含义如下
 - DataFrame 结构的行数、列数允许增加或者删除；
 - DataFrame 有两个方向的标签轴，分别是行标签和列标签；
 - DataFrame 可以对行和列执行算术运算。
-
-
 
 ## 创建DataFrame对象
 
@@ -288,261 +286,6 @@ d     NaN    4
 
 注意：对于 one 列而言，此处虽然显示了行索引 'd'，但由于没有与其对应的值，所以它的值为 NaN。
 
-## 列索引操作DataFrame
-
-DataFrame 可以使用列索（columns index）引来完成数据的选取、添加和删除操作。下面依次对这些操作进行介绍。
-
-#### 1) 列索引选取数据列
-
-您可以使用列索引，轻松实现数据选取，示例如下：
-
-```python
-import pandas as pd
-d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),   'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])}
-df = pd.DataFrame(d)
-print(df ['one'])
-```
-
-输出结果：
-
-```
-a     1.0
-b     2.0
-c     3.0
-d     NaN
-Name: one, dtype: float64
-```
-
-#### 2) 列索引添加数据列
-
-使用 columns 列索引表标签可以实现添加新的数据列，示例如下：
-
-```python
-import pandas as pd
-d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),   'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])}
-df = pd.DataFrame(d)
-#使用df['列']=值，插入新的数据列
-df['three']=pd.Series([10,20,30],index=['a','b','c'])
-print(df)
-#将已经存在的数据列做相加运算
-df['four']=df['one']+df['three']
-print(df)
-```
-
-输出结果：
-
-```
-使用列索引创建新数据列:
-     one   two   three
-a    1.0    1    10.0
-b    2.0    2    20.0
-c    3.0    3    30.0
-d    NaN    4    NaN
-
-已存在的数据列做算术运算：
-      one   two   three    four
-a     1.0    1    10.0     11.0
-b     2.0    2    20.0     22.0
-c     3.0    3    30.0     33.0
-d     NaN    4     NaN     NaN
-```
-
-上述示例，我们初次使用了 DataFrame 的算术运算，这和 NumPy 非常相似。除了使用`df[]=value`的方式外，您还可以使用 insert() 方法插入新的列，示例如下：
-
-```python
-import pandas as pd
-info=[['Jack',18],['Helen',19],['John',17]]
-df=pd.DataFrame(info,columns=['name','age'])
-print(df)
-#注意是column参数
-#数值1代表插入到columns列表的索引位置
-df.insert(1,column='score',value=[91,90,75])
-print(df)
-```
-
-输出结果：
-
-```
-添加前：
-    name  age
-0   Jack   18
-1  Helen   19
-2   John   17
-
-添加后：
-    name  score  age
-0   Jack     91   18
-1  Helen     90   19
-2   John     75   17
-```
-
-#### 3) 列索引删除数据列
-
-通过 del 和 pop() 都能够删除 DataFrame 中的数据列。del方法不会返回任何值，但是pop会以series格式返回删除的列示例如下：
-
-```python
-import pandas as pd
-d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),   'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd']),   'three' : pd.Series([10,20,30], index=['a','b','c'])}
-df = pd.DataFrame(d)
-print ("Our dataframe is:")
-print(df)
-#使用del删除
-del df['one']
-print(df)
-#使用pop方法删除
-df.pop('two')
-print (df)
-```
-
-输出结果：
-
-```
-原DataFrame:
-      one   three  two
-a     1.0    10.0   1
-b     2.0    20.0   2
-c     3.0    30.0   3
-d     NaN     NaN   4
-
-使用del删除:
-      three    two
-a     10.0     1
-b     20.0     2
-c     30.0     3
-d     NaN      4
-
-使用 pop()删除:
-   three
-a  10.0
-b  20.0
-c  30.0
-d  NaN
-```
-
-## 行索引操作DataFrame
-
-理解了上述的列索引操作后，行索引操作就变的简单。下面看一下，如何使用行索引来选取 DataFrame 中的数据。
-
-#### 1) 标签索引选取
-
-可以将行标签传递给 loc 函数，来选取数据。示例如下：
-
-```python
-import pandas as pd
-d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),   'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])}
-df = pd.DataFrame(d)
-print(df.loc['b'])
-```
-
-输出结果：
-
-```
-one 2.0
-two 2.0
-Name: b, dtype: float64
-```
-
-注意：loc 允许接两个参数分别是行和列，参数之间需要使用“逗号”隔开，但**该函数只能接收标签索引**。
-
-#### 2) 整数索引选取
-
-通过将数据行所在的索引位置传递给 iloc 函数，也可以实现数据行选取。示例如下：
-
-```python
-import pandas as pd
-d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),   'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])}
-df = pd.DataFrame(d)
-print (df.iloc[2]）
-```
-
-输出结果：
-
-```
-one   3.0
-two   3.0
-Name: c, dtype: float64
-```
-
-注意：iloc 允许接受两个参数分别是行和列，参数之间使用“逗号”隔开，但该函数只能接收整数索引。
-
-#### 3) 切片操作多行选取
-
-您也可以使用切片的方式同时选取多行。示例如下：
-
-```
-import pandas as pd
-d = {'one' : pd.Series([1, 2, 3], index=['a', 'b', 'c']),   'two' : pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])}
-df = pd.DataFrame(d)
-#左闭右开
-print(df[2:4])
-#使用iloc也是相同效果
-print(df.iloc[2:4])
-```
-
-输出结果：
-
-```
-   one  two
-c  3.0    3
-d  NaN    4
-```
-
-#### 4) 添加数据行
-
-使用 append() 函数，可以将新的数据行添加到 DataFrame 中，该函数会在行末追加数据行。示例如下：
-
-```python
-import pandas as pd
-df = pd.DataFrame([[1, 2], [3, 4]], columns = ['a','b'])
-df2 = pd.DataFrame([[5, 6], [7, 8]], columns = ['a','b'])
-#在行末追加新数据行
-df = df.append(df2, ignore_index=True)
-print(df)
-#使用concat方法
-df = pd.concat([df,df2])
-print(df)
-```
-
-输出结果：
-
-```
-   a  b
-0  1  2
-1  3  4
-3  5  6
-4  7  8
-```
-
-#### 5) 删除数据行
-
-您可以使用行索引标签，从 DataFrame 中删除某一行数据。如果索引标签存在重复，那么它们将被一起删除。示例如下：
-
-```python
-import pandas as pd
-df = pd.DataFrame([[1, 2], [3, 4], [5, 6]], columns = ['a','b'])
-print(df)
-#此处调用了drop()方法
-df = df.drop(2)
-print (df)
-```
-
-输出结果：
-
-```
-执行drop(0)前：
-   a  b
-0  1  2
-1  3  4
-2  5  6
-
-执行drop(0)后：
-   a  b
-0  1  2
-1  3  4
-```
-
-在上述的示例中，默认使用 range(2) 生成了行索引，并通过 drop(0) 同时删除了两行数据。
-
 ## 常用属性和方法汇总
 
 DataFrame 的属性和方法，与 Series 相差无几，如下所示：
@@ -691,7 +434,21 @@ print(df.size)
 21
 ```
 
-#### 8) values
+#### 8) index
+
+返回 DataFrame 中的索引。
+
+```python
+print(df.index)
+```
+
+输出结果：
+
+```
+RangeIndex(start=0, stop=7, step=1)
+```
+
+#### 9) values
 
 以 ndarray 数组的形式返回 DataFrame 中的数据。
 
@@ -711,7 +468,7 @@ print(df.values)
  ['C' 23 3.8]]
 ```
 
-#### 9) head()&tail()查看数据
+#### 10) head()&tail()查看数据
 
 如果想要查看 DataFrame 的一部分数据，可以使用 head() 或者 tail() 方法。其中 head() 返回前 n 行数据，默认显示前 5 行数据。示例如下：
 
@@ -742,7 +499,7 @@ print(df.tail(2))
 6    C       23     3.8
 ```
 
-#### 10) shift()移动行或列
+#### 11) shift()移动行或列
 
 如果您想要移动 DataFrame 中的某一行/列，可以使用 shift() 函数实现。它提供了一个`periods`参数，该参数表示在特定的轴上移动指定的步幅。
 

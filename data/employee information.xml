@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="yes"?>
+<RECORDS>
+	<RECORD>
+		<ID>1</ID>
+		<Name>John Idle</Name>
+		<Hire Date>8/1/2014 00:00:00</Hire Date>
+		<Salary>50000.00</Salary>
+		<Leaves Remaining>10 </Leaves Remaining>
+	</RECORD>
+	<RECORD>
+		<ID>2</ID>
+		<Name>Smith Gilliam</Name>
+		<Hire Date>4/7/2015 00:00:00</Hire Date>
+		<Salary>65000.00</Salary>
+		<Leaves Remaining>6 </Leaves Remaining>
+	</RECORD>
+	<RECORD>
+		<ID>3</ID>
+		<Name>Parker Chapman</Name>
+		<Hire Date>2/1/2014 00:00:00</Hire Date>
+		<Salary>45000.00</Salary>
+		<Leaves Remaining>7 </Leaves Remaining>
+	</RECORD>
+	<RECORD>
+		<ID>4</ID>
+		<Name>Jones Palin</Name>
+		<Hire Date>10/1/2013 00:00:00</Hire Date>
+		<Salary>70000.00</Salary>
+		<Leaves Remaining>3 </Leaves Remaining>
+	</RECORD>
+	<RECORD>
+		<ID>5</ID>
+		<Name>Terry Gilliam</Name>
+		<Hire Date>7/1/2014 00:00:00</Hire Date>
+		<Salary>48000.00</Salary>
+		<Leaves Remaining>9 </Leaves Remaining>
+	</RECORD>
+	<RECORD>
+		<ID>6</ID>
+		<Name>Michael Palin</Name>
+		<Hire Date>6/1/2013 00:00:00</Hire Date>
+		<Salary>66000.00</Salary>
+		<Leaves Remaining>8  </Leaves Remaining>
+	</RECORD>
+</RECORDS>
+

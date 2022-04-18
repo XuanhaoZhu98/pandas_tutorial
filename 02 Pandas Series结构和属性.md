@@ -1,4 +1,4 @@
-# 02 Pandas Series入门教程
+# 02 Pandas Series结构和属性
 
 Series 结构，也称 Series 序列，是 Pandas 常用的数据结构之一，它是一种类似于一维数组的结构，由一组数据值（value）和一组标签组成，其中标签与数据值之间是一一对应的关系。
 
@@ -7,7 +7,7 @@ Series 可以保存任何数据类型，比如整数、字符串、浮点数、P
 
 
 ![pandas series](http://c.biancheng.net/uploads/allimg/210901/15400SM1-0.gif)
- 
+
 
 通过标签我们可以更加直观地查看数据所在的索引位置。
 
