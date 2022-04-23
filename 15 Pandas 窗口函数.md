@@ -1,4 +1,4 @@
-# 14 Pandas窗口函数
+# 15 Pandas窗口函数
 
 为了能更好地处理数值型数据，Pandas 提供了几种窗口函数，比如移动函数（rolling）、扩展函数（expanding）和指数加权函数（ewm）。
 
@@ -8,7 +8,7 @@
 
 本节学习主要讲解如何在 DataFrame 和 Series 对象上应用窗口函数。
 
-## rolling()
+## 移动窗口函数 rolling()
 
 rolling() 又称移动窗口函数，它可以与 mean、count、sum、median、std 等聚合函数一起使用。为了使用方便，Pandas 为移动函数定义了专门的方法聚合方法，比如 rolling_mean()、rolling_count()、rolling_sum() 等。其的语法格式如下：
 
@@ -93,7 +93,7 @@ rolling()函数除了mean()，还支持很多函数，比如：
 - cov() 无偏协方差（二元）
 - corr() 相关（二进制）
 
-## expanding()
+## 扩展窗口函数 expanding()
 
 expanding() 又叫扩展窗口函数，扩展是指由序列的第一个元素开始，逐个向后计算元素的聚合值。
 
@@ -182,7 +182,7 @@ print(df.expanding(min_periods=1).sum())
 
 设置 min_periods=3，表示至少 3 个数求一次均值，计算方式为 (index0+index1+index2)/3，而 index3 的计算方式是 (index0+index1+index2+index3)/4，依次类推。
 
-## ewm()
+## 指数加权移动 ewm()
 
 ewm（全称 Exponentially Weighted Moving）表示指数加权移动。ewn() 函数先会对序列元素做指数加权运算，其次计算加权后的均值。该函数通过指定 com、span 或者 halflife 参数来实现指数加权移动，必须提供质心(com)、跨度(span)、半衰期(half-life)和alpha值之一。
 

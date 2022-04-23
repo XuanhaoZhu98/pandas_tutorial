@@ -1,4 +1,4 @@
-# 06 Pandas reindex重置索引
+# 05 Pandas reindex重置索引
 
 重置索引（reindex）可以更改原 DataFrame 的行标签或列标签，并使更改后的行、列标签与 DataFrame 中的数据逐一匹配。通过重置索引操作，您可以完成对现有数据的重新排序。如果重置的索引标签在原 DataFrame 中不存在，那么该标签对应的元素值将全部填充为 NaN。
 

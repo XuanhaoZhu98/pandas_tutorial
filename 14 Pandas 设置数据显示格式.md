@@ -1,4 +1,4 @@
-# 11 Pandas设置数据显示格式
+# 14 Pandas设置数据显示格式
 
 在用 Pandas 做数据分析的过程中，总需要打印数据分析的结果，如果数据体量较大就会存在输出内容不全（部分内容省略）或者换行错误等问题。Pandas 为了解决上述问题，允许你对数据显示格式进行设置。下面列出了五个用来设置显示格式的函数，分别是：
 
@@ -24,7 +24,7 @@
 
 ## get_option()
 
-该函数接受单一参数，用来获取显示上限的行数或者列数，示例如下：
+该函数接受单一参数，用来获取显示相关显示选项，示例如下：
 
 #### 1) display.max_rows
 
@@ -60,7 +60,7 @@ print (pd.get_option("display.max_columns"))
 
 ## set_option()
 
-该函数用来更改要默认显示的行数和列数，示例如下：
+该函数用来更改相关显示选项，示例如下：
 
 #### 1) 修改默认行数
 
@@ -92,7 +92,7 @@ print (pd.get_option("display.max_columns"))
 
 ## reset_option()
 
-该方法接受一个参数，并将修改后的值设置回默认值。示例如下：
+该方法接受一个参数，并将修改后的相关显示选项设置回默认值。示例如下：
 
 ```python
 import pandas as pd
@@ -167,3 +167,5 @@ print(pd.get_option("display.max_rows"))
 | display.precision         | 设置输出数据的小数点位数。                                   |
 | display.width             | 数据显示区域的宽度，以总字符数计算。                         |
 | display.show_dimensions   | 当数据量大需要以truncate（带引号的省略方式）显示时，该参数表示是否在最后显示数据的维数，默认 True 显示，False 不显示。上述参数项，基本上可以满足我们的日常需求。 |
+| display.large_repr        | 当数据维度超过max_rows和max_columns时，设置数据的显示方式，参数值truncate显示带省略号的数据（默认方式）；参数值info显示数据的统计信息，而不直接显示数据（info实际就是df.info()函数） |
+| display.max_info_columns  | df.info()函数按列统计每列的非空数据个数，当数据很大时，计算过程非常慢，该参数设置最大列数，当数据表的列数小于该值时，才计算每列的非空值并输出，当超过该值时不进行计算。 |

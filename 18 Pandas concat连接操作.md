@@ -1,4 +1,4 @@
-# 19 Pandas concat连接操作
+# 18 Pandas concat连接操作
 
 Pandas 通过 concat() 函数能够轻松地将 Series 与 DataFrame 对象组合在一起，函数的语法格式如下：
 

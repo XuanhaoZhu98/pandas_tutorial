@@ -1,4 +1,4 @@
-# 18 Pandas merge合并操作
+# 17 Pandas merge合并操作
 
 Pandas 提供的 merge() 函数能够进行高效的合并操作，这与 SQL 关系型数据库的 MERGE 用法非常相似。从字面意思上不难理解，merge 翻译为“合并”，指的是将两个 DataFrame 数据表按照指定的规则进行连接，最后拼接成一个新的 DataFrame 数据表。
 

@@ -1,4 +1,4 @@
-# 17 Pandas groupby分组操作
+# 08 Pandas groupby分组操作
 
 在数据分析中，经常会遇到这样的情况：根据某一列（或多列）标签把数据划分为不同的组别，然后再对其进行数据分析。比如，某网站对注册用户的性别或者年龄等进行分组，从而研究出网站用户的画像（特点）。在 Pandas 中，要完成数据的分组操作，需要使用 groupby() 函数，它和 SQL 的`GROUP BY`操作非常相似。 
 
@@ -7,10 +7,6 @@
 - 拆分（Spliting）：表示对数据进行分组；
 - 应用（Applying）：对分组数据应用聚合函数，进行相应计算；
 - 合并（Combining）：最后汇总计算结果。
-
-下面对 groupby() 函数的应用过程进行具体的讲解。
-
-## 创建DataFrame对象
 
 首先我们创建一个 DataFrame 对象，下面数据描述了某班学生，计算机选修课的考试成绩：
 
@@ -281,6 +277,8 @@ Name: score, dtype: float64
 ```python
 grouped=df.groupby('option_course')
 print(grouped['score'].apply(np.mean))
+#另一种实现方法
+print(df.groupby('option_course').mean())
 ```
 
 输出结果：

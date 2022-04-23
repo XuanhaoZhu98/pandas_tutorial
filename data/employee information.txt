@@ -1,0 +1,10 @@
+This is a header that discusses the table file
+              Name           Hire Date   Salary  Leaves Remaining
+ID                                                               
+1        John Idle   8/1/2014 00:00:00  50000.0                10
+2    Smith Gilliam   4/7/2015 00:00:00  65000.0                 6
+3   Parker Chapman   2/1/2014 00:00:00  45000.0                 7
+4      Jones Palin  10/1/2013 00:00:00  70000.0                 3
+5    Terry Gilliam   7/1/2014 00:00:00  48000.0                 9
+6    Michael Palin   6/1/2013 00:00:00  66000.0                 8
+This is a footer because your boss does not understand data files
